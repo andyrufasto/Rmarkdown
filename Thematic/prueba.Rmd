@@ -1,0 +1,49 @@
+---
+title: "Thematic Demo"
+output:
+ html_document:
+  theme:
+   bg: "#0C0F16"
+   fg: "#FFFFFF"
+   primary: "#B53838"
+   accent: "#B53838"
+   base_font: "open sans"
+   
+---
+
+```{r setup, include=FALSE}
+thematic::thematic_rmd()
+```
+
+## {.tabset .tabset-pills}
+
+### plot
+
+```{r}
+x <- rnorm(100)
+hist(x)
+```
+
+### ggplot2
+
+```{r}
+library(ggplot2)
+
+x <- rnorm(100)
+
+data = data.frame(x)
+plot <- ggplot(data, aes(x)) + geom_histogram()
+plot
+```
+
+### echarts4r
+
+```{r}
+library(echarts4r)
+
+x <- rnorm(100)
+data = data.frame(x)
+
+e_charts(data) |>
+e_histogram(x)
+```
