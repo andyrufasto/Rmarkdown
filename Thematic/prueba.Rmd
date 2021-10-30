@@ -17,12 +17,6 @@ thematic::thematic_rmd()
 
 ## {.tabset .tabset-pills}
 
-### plot
-
-```{r}
-x <- rnorm(100)
-hist(x)
-```
 
 ### ggplot2
 
