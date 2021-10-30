@@ -1,0 +1,35 @@
+table.rmdtable th{
+	background: -webkit-linear-gradient(top, #550000 40%, #801515 80%) no-repeat;
+}
+
+slides > slide.dark {
+	background: #0C0F16 !important;
+}
+
+
+h2{
+	color: #B53838;
+}
+
+.prettyprint .typ, .prettyprint .atn, .prettyprint .dec, .prettyprint .var {
+	color: #B53838;
+}
+
+a {
+	color: #0C0F16;	
+}
+
+.prettyprint .kwd, .prettyprint .tag {
+	color: #0C0F16;
+}
+
+.prettyprint .str, .prettyprint .atv {
+	color: #515151;
+}
+
+.center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 150;
+}

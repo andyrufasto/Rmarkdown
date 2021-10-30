@@ -1,0 +1,48 @@
+---
+output: 
+ html_document:
+  theme:
+   bg: "#0C0F16"
+   fg: "#FFFFFF"
+   primary: "#B53838"
+   accent: "#B53838"
+   base_font: "open sans"
+---
+
+```{r,include=FALSE}
+library(wordcloud2)
+library(tm)
+
+text = readLines("dist.md")
+
+text = Corpus(VectorSource(text))
+
+text <- tm_map(text, content_transformer(tolower))
+text <- tm_map(text, stripWhitespace)
+text <- tm_map(text, removeWords, stopwords("spanish"))
+
+dtm <- TermDocumentMatrix(text)
+m <- as.matrix(dtm)
+v <- sort(rowSums(m),decreasing=TRUE)
+d <- data.frame(word = names(v),freq=v)
+head(d, 10)
+```
+
+```{r,include=FALSE}
+
+text <- tm_map(text,removeWords,c ("ello","asimismo","través","así","manera"))
+dtm <- TermDocumentMatrix(text)
+m <- as.matrix(dtm)
+v <- sort(rowSums(m),decreasing=TRUE)
+d <- data.frame(word = names(v),freq=v)
+head(d, 10)
+```
+
+```{r,include=FALSE}
+nube <- wordcloud2(data=d,size = 1,backgroundColor = '#0C0F16',color = rep_len(c('white','#B53838'),nrow(d)))
+```
+```{r}
+nube
+```
+
+
